@@ -1,0 +1,4 @@
+# This kit reads and writes text where line endings are part of the content being audited.
+# Keep the working tree LF so a Windows checkout does not hand you CRLF prose.
+* text=auto eol=lf
+*.png binary
