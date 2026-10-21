@@ -29,6 +29,11 @@ const smells = [
   ['backtick-leftover', /`/g],
   ['double-escaped', /&amp;(lt|gt|amp);/g],
   ['wikilink-leftover', /\[\[/g],
+  // The converter handles bold, code and wikilink-ish text; it does NOT turn [text](url)
+  // into an anchor. A markdown link therefore arrives at the platform as literal
+  // "[deid-publish-kit](github.com/…)" — which reads as a typo in a finished article. If you
+  // want links in a paste-version, write them as bare text or extend the converter first.
+  ['markdown-link-leftover', /[^\s]\]\([^)]+\)/g],
 ];
 const leaks = {};
 for (const [name, re] of smells) {
