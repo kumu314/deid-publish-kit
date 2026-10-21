@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>cover-ok</title>
+<style>
+  html,body{margin:0}
+  .sheet{position:relative;width:1200px;height:1600px;overflow:hidden;background:#0d1420;color:#e8eefc;
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:88px;box-sizing:border-box}
+  .layer{position:absolute;inset:88px;display:flex;flex-direction:column;gap:32px}
+  h1{font-size:100px;line-height:1.15;margin:0}
+  .sub{font-size:38px;color:#9fb3d9}
+  .bars{display:flex;align-items:flex-end;gap:18px;margin-top:6px}
+  .bar{flex:1 1 0;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;text-align:center}
+  .bar b{font-size:50px}
+  .bar i{display:block;background:#4f8cff;border-radius:4px}
+  .bar span{font-size:30px;color:#9fb3d9}
+  .foot{margin-top:auto;font-size:32px;color:#7f92b5}
+</style></head><body><div class="sheet"><div class="layer">
+  <div class="sub">示例数据图 · 数值来自 verify-durations.js 的复算输出</div>
+  <h1>旧结论是怎么<br>被当成现状的</h1>
+  <div class="bars">
+    <div class="bar"><b>1.04</b><i style="height:12px"></i><span>A</span></div>
+    <div class="bar"><b>5.63</b><i style="height:67px"></i><span>B</span></div>
+    <div class="bar"><b>11.21</b><i style="height:133px"></i><span>C</span></div>
+    <div class="bar"><b>23.50</b><i style="height:279px"></i><span>D</span></div>
+    <div class="bar"><b>0.04</b><i style="height:6px"></i><span>E</span></div>
+  </div>
+  <div class="foot">纵轴按天数等比，1 天 ≈ 11.9 px；不足 6 px 的条目按 6 px 画——读数认数字，不认条长。</div>
+</div></div>
+<script>
+(function () {
+  var s = document.querySelector('.sheet'), r = s.getBoundingClientRect(), bad = [];
+  document.querySelectorAll('.layer *').forEach(function (e) {
+    var b = e.getBoundingClientRect();
+    if (b.height && b.bottom > r.bottom + 1) bad.push((e.className || e.tagName) + ':' + Math.round(b.bottom - r.bottom));
+    if (b.right > r.right + 1) bad.push((e.className || e.tagName) + '#w:' + Math.round(b.right - r.right));
+  });
+  var d = document.createElement('div');
+  d.id = 'fit';
+  d.textContent = bad.length ? 'OVERFLOW_BAD ' + bad.join(',') : 'OVERFLOW_OK';
+  document.head.appendChild(d);
+})();
+</script></head></body></html>

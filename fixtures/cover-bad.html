@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>cover-bad</title>
+<style>
+  html,body{margin:0}
+  .sheet{position:relative;width:1200px;height:1600px;overflow:hidden;background:#0d1420;color:#e8eefc;
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:88px;box-sizing:border-box}
+  .layer{position:absolute;inset:88px;display:flex;flex-direction:column;gap:32px}
+  h1{font-size:100px;line-height:1.15;margin:0}
+  .bars{display:flex;align-items:flex-end;gap:18px;flex:0 0 auto;height:1200px}
+  .bar{flex:1 1 0;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;text-align:center}
+  .bar i{display:block;background:#4f8cff}
+</style></head><body><div class="sheet"><div class="layer">
+  <div class="sub">示例 · 这张故意做坏：内容顶出画布，条高用百分比</div>
+  <h1>旧结论是怎么<br>被当成现状的<br>第三行本来就放不下</h1>
+  <div class="bars">
+    <div class="bar"><b>80</b><i style="height:80%"></i><span>甲</span></div>
+    <div class="bar"><b>37</b><i style="height:37%"></i><span>乙</span></div>
+  </div>
+</div></div>
+<script>
+(function () {
+  var s = document.querySelector('.sheet'), r = s.getBoundingClientRect(), bad = [];
+  document.querySelectorAll('.layer *').forEach(function (e) {
+    var b = e.getBoundingClientRect();
+    if (b.height && b.bottom > r.bottom + 1) bad.push((e.className || e.tagName) + ':' + Math.round(b.bottom - r.bottom));
+    if (b.right > r.right + 1) bad.push((e.className || e.tagName) + '#w:' + Math.round(b.right - r.right));
+  });
+  var d = document.createElement('div');
+  d.id = 'fit';
+  d.textContent = bad.length ? 'OVERFLOW_BAD ' + bad.join(',') : 'OVERFLOW_OK';
+  document.head.appendChild(d);
+})();
+</script></head></body></html>

@@ -1,0 +1,24 @@
+# Identity word list — EXAMPLE. Safe to publish because every token below is invented.
+#
+# Your real list must not be committed (see .gitignore). One literal per line.
+# Matching is case-insensitive and substring-based by default, which is what you want for
+# names embedded in paths or identifiers (a handle inside a folder name still gets caught).
+# That strictness has a price: a two-letter handle also matches inside ordinary words
+# ("ab" matches "above"). Run that pass with --word-boundary instead of dropping the token.
+#
+# Put in here, at minimum:
+#   - display names and handles of every person or agent identity in the source system
+#   - merged/aliased variants of the same person (they are separate lines)
+#   - machine names, hostnames, account names, vendor or carrier names
+#   - project, product and repo names that a reader inside your org could grep for
+#   - internal file names that are themselves identifying
+#
+# Test before trusting it: put one known-bad token in a scratch file and confirm the gate
+# goes red. A word list that has never fired is not evidence that your text is clean.
+alice-lab
+bobsdesk
+carol-corp
+daveinc
+eve-hub
+canvas-manager
+northwind-repo

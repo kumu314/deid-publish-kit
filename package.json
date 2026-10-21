@@ -1,0 +1,32 @@
+{
+  "name": "deid-publish-kit",
+  "version": "0.1.0",
+  "description": "Form-based de-identification gate, platform-variant derivation, and mechanical number re-computation for publishing real incident prose.",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "node selfcheck.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "leakcheck.js",
+    "measure.js",
+    "html2text.js",
+    "derive.js",
+    "verify-derivation.js",
+    "verify-durations.js",
+    "render.js",
+    "fit.js",
+    "cover-guard.js",
+    "selfcheck.js",
+    "wordlist.example.txt",
+    "dates.example.txt",
+    "derive.example.json",
+    "fit.example.json",
+    "fixtures/",
+    "README.md",
+    "LICENSE"
+  ]
+}

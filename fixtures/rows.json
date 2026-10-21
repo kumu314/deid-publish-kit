@@ -1,0 +1,26 @@
+{
+  "anchor": "1999-01-04T08:00:00.000Z",
+  "note": "Synthetic dump of an append-only event log, shaped like the real query result. This is PRE-gate input: it carries absolute timestamps on purpose and must never be published or committed alongside a draft that claims to be de-identified. Only the recomputed durations leave this directory.",
+  "rows": [
+    { "seq": 1, "at": "1999-01-04T08:00:00.000Z", "actor": "operator-a", "kind": "note", "summary": "chain starts here; every duration in the draft is measured from this row" },
+    { "seq": 240, "at": "1999-01-04T11:00:00.000Z", "actor": "operator-a", "kind": "measurement", "summary": "first reading recorded against the live artifact" },
+    { "seq": 512, "at": "1999-01-05T12:00:00.000Z", "actor": "operator-b", "kind": "correction", "summary": "correction posted after re-measuring the same object" },
+    { "seq": 777, "at": "1999-01-11T03:00:00.000Z", "actor": "runner-c", "kind": "decision", "summary": "the rule that makes the earlier reading wrong is written down" },
+    { "seq": 1024, "at": "1999-01-22T08:00:00.000Z", "actor": "operator-b", "kind": "note", "summary": "stale card still being cited as current state" },
+    { "seq": 1337, "at": "1999-02-14T20:00:00.000Z", "actor": "operator-d", "kind": "risk", "summary": "risk opened for the citation that outlived the rule" },
+    { "seq": 1500, "at": "1999-03-15T07:00:00.000Z", "actor": "operator-d", "kind": "risk-close", "summary": "risk closed as mitigated, one hour before the same mistake recurs" },
+    { "seq": 2048, "at": "1999-03-15T08:00:00.000Z", "actor": "operator-e", "kind": "note", "summary": "identical misreading restated after the closure" }
+  ],
+  "claims": [
+    { "label": "A first-reading -> correction", "seqs": [240, 512], "published": "1.04d" },
+    { "label": "B correction -> rule-written-down", "seqs": [512, 777], "published": "5.63d" },
+    { "label": "C rule-written-down -> stale-citation", "seqs": [777, 1024], "published": "11.21d" },
+    { "label": "D stale-citation -> risk-opened", "seqs": [1024, 1337], "published": "23.50d" },
+    { "label": "E risk-closed -> restatement", "seqs": [1500, 2048], "published": "1h0m" },
+    { "label": "F whole-record span", "seqs": [777, 1500], "published": "63.17d" }
+  ],
+  "day_claims": [
+    { "label": "first row day index", "seq": 1, "published": "1" },
+    { "label": "last row day index, the +1 trap", "seq": 2048, "published": "71" }
+  ]
+}

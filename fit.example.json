@@ -1,0 +1,12 @@
+{
+  "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "htmlDir": "fixtures",
+  "profile": "out/chrome-profile",
+  "outDir": "out/png",
+  "background": "0d1420ff",
+  "virtualTimeBudget": 8000,
+  "targets": {
+    "cover-ok": "1200,1600",
+    "cover-bad": "1200,1600"
+  }
+}

@@ -1,0 +1,17 @@
+# The gate is publishable. What it enforces is not.
+wordlist.txt
+dates.txt
+*.private.txt
+*.local.txt
+
+# your raw exports: pre-gate input, never a publishable artifact
+exports/
+out/
+tmp/
+*.VISIBLE-TEXT.txt
+chrome-profile*/
+*.png
+
+node_modules/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,22 @@
+# Date window — EXAMPLE. The dates below are synthetic.
+#
+# Your real window stays private (.gitignore). One literal or literal prefix per line.
+# Matching is plain substring, so a short prefix kills a whole month:
+#   1999-01        every 1999-01-xx reading, including inside ISO timestamps
+#   1999-01-04     one day only
+#
+# What belongs in here:
+#   - every calendar month your source data can be observed in (the de-identification risk
+#     is not the date itself, it is that an insider can search the public web for
+#     "<that date> <that event>" and land back on your system)
+#   - the exact day the chain or log starts, because a first-row date plus a duration
+#     reconstructs every other timestamp
+#   - release dates, incident dates, deadlines named in the source
+#
+# The companion rule you cannot put in a list: if a relative duration survives (T+4h12m)
+# next to any absolute anchor, the anchor plus the duration re-creates the absolute time.
+# Either drop the anchor or drop the arithmetic; see measure.js.
+1999-01
+1999-02
+1999-03
+1999-01-04

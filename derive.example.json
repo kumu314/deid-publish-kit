@@ -1,0 +1,17 @@
+{
+  "master": "fixtures/master-sample.md",
+  "fromSection": "## 0. 一句话结论",
+  "outDir": "out",
+  "zhihu": {
+    "file": "zhihu-示例版.md",
+    "title": "只追加日志里，旧结论是怎么被当成现状的",
+    "deck": "一份 71 天操作日志的一手观察：6 次显式推翻、1 条判据指向根本不存在的字段、机制写下来之后又被引用一次。顺便对照公开基准测的是什么、漏掉的是什么。",
+    "leadFile": "fixtures/lead.example.md"
+  },
+  "wechat": {
+    "file": "wechat-示例版.html",
+    "title": "只追加日志里，旧结论是怎么被当成现状的",
+    "subtitle": "一份 71 天操作日志的一手观察",
+    "usage": "用法：在浏览器打开本页，Ctrl+A 全选、Ctrl+C 复制，粘贴进公众号正文编辑器。标题、摘要、封面在发布包里另填；表格与代码块已带内联样式，无需再调。"
+  }
+}
