@@ -58,7 +58,7 @@
 ## 30 秒上手
 
 ```bash
-git clone <本仓库地址> && cd deid-publish-kit
+git clone https://github.com/kumu314/deid-publish-kit && cd deid-publish-kit
 
 # 1) 造你自己的词表（身份名 / 机器名 / 工程名，一行一个）
 cp wordlist.example.txt wordlist.txt
